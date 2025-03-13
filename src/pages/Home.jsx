@@ -1,84 +1,83 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import jamesonDP from "../assets/jameson-dp.jpg"
-import youtubeIcon from "../assets/youtube-icon.svg"
-import mtFuji from "../assets/mtFuji.jpg"
+import IntroCard from '../components/IntroCard';
+import PhotoCard from '../components/PhotoCard';
+import YoutubeCard from '../components/YoutubeCard';
+import SocialMediaCard from '../components/SocialMediaCard';
+import Footer from '../components/Footer';
+
+// Import assets
+import youtubeIcon from "../assets/youtube-icon.svg";
+import threadsIcon from "../assets/threads-icon.svg";
+import mtFuji from "../assets/mtFuji.jpg";
+import bmw from "../assets/bmw.jpg";
 import ytThumbnail1 from "../assets/jameson-yt-thumbnail-3.jpg";
-
-// Basic card components without context
-const Card = ({ children, className }) => (
-  <div className={`rounded-lg overflow-hidden bg-[#0D1117] ${className}`}>
-    {children}
-  </div>
-);
-
-const LinkCard = ({ to, children, className }) => (
-  <Link to={to} className={`block rounded-lg overflow-hidden bg-[#0D1117] ${className}`}>
-    {children}
-  </Link>
-);
-
-const ExternalLinkCard = ({ href, children, className }) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    className={`block rounded-lg overflow-hidden bg-[#0D1117] ${className}`}
-  >
-    {children}
-  </a>
-);
+import ytThumbnail2 from "../assets/jameson-yt-thumbnail-2.jpg";
 
 const Home = () => {
   return (
-    <main className="container mx-auto px-28 py-16">
+    <main className="container mx-auto px-28 py-16 bg-[#090c10]">
       {/* Bento Grid Layout */}
-      <div className="grid grid-cols-4 grid-rows-11 gap-8">
-
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
         {/* Intro Card */}
-        <Card className="col-span-2 row-span-2 p-6 flex flex-col justify-center">
-          <div className="mb-4 w-16 h-16 rounded-full overflow-hidden bg-yellow-100">
-            {/* Placeholder for profile pic */}
-            <img
-                src={jamesonDP}
-                alt="Jameson's handsome face" 
-                className="w-full h-full flex items-center justify-center"
-            />
-          </div>
-          <h1 className="text-2xl text-[#EFEBEB]">Hello I'm <span className="text-white">Jameson</span>, I see the world through my lens, and each photo is a piece of my journey.</h1>
-        </Card>
-
-        {/* Tokyo Card */}
-        <LinkCard to="https://www.youtube.com/watch?v=l6WkY48htb4" className="col-span-1 row-span-2 border relative">
-          <div className="aspect-square bg-gray-700 flex items-center justify-center">
-            <img 
-                src={ytThumbnail1}
-                alt='Jameson & Tracy youtube thumbnail for tokyo trip'
-                className="w-full h-full object-cover"
-            />
-          </div>
-        </LinkCard>
-
-        <ExternalLinkCard href="https://youtube.com/@jamesonandtracy" className="col-span-1 row-span-2 aspect-square flex items-center justify-center border p-4">
-            <div className="aspect-square flex items-center justify-center">
-                <img 
-                    src={youtubeIcon}
-                    alt='Jameson & Tracy youtube thumbnail for tokyo trip'   
-                />
-            </div>
-        </ExternalLinkCard>
-
-        {/* Mt Fuji Card */}
-        <LinkCard to="https://www.youtube.com/watch?v=l6WkY48htb4" className="col-span-1 row-span-3 border relative">
-          <div className=" bg-gray-700 flex items-center justify-center">
-            <img 
-                src={mtFuji}
-                alt='A nice shot of Mount Fuji'
-                className="w-full h-full object-cover"
-            />
-          </div>
-        </LinkCard>
-
+        <IntroCard />
+        
+        {/* Tokyo Video Card */}
+        <YoutubeCard 
+          url="https://www.youtube.com/watch?v=l6WkY48htb4"
+          thumbnail={ytThumbnail1}
+          alt="Jameson & Tracy youtube thumbnail for Tokyo trip"
+          className="col-span-1 row-span-2"
+          dimAmount="bg-black/40"
+        />
+        
+        {/* YouTube Channel Card */}
+        <SocialMediaCard 
+          href="https://youtube.com/@jamesonandtracy"
+          icon={youtubeIcon}
+          alt="YouTube Channel"
+          className="col-span-1 row-span-2"
+        />
+        
+        {/* Mt Fuji Photo Card */}
+        <PhotoCard 
+          to="/highlights/japan"
+          image={mtFuji}
+          alt="A nice shot of Mount Fuji"
+          className="col-span-1 row-span-2"
+          aspectRatio="aspect-[2/3]"
+          dimAmount="bg-black/40"
+        />
+        
+        {/* Threads Card */}
+        <SocialMediaCard 
+          href="https://threads.net/yourprofile"
+          icon={threadsIcon}
+          alt="Threads Profile"
+          className="col-span-1 row-span-2"
+        />
+        
+        {/* BMW Photo - Larger card */}
+        <PhotoCard 
+          to="/highlights/japan"
+          image={bmw}
+          alt="A nice shot of BMW"
+          className="col-span-2 row-span-4"
+          aspectRatio="aspect-[2/3]"
+          dimAmount="bg-black/40"
+        />
+        
+        {/* Seoul Video Card */}
+        <YoutubeCard 
+          url="https://www.youtube.com/watch?v=7SuUzyOUvck&t=1s"
+          thumbnail={ytThumbnail2}
+          alt="Jameson & Tracy youtube thumbnail for Seoul trip" 
+          className="col-span-2 row-span-2"
+          aspectRatio="aspect-[3]"
+          dimAmount="bg-black/40"
+        />
+        
+        {/* Footer */}
+        <Footer />
       </div>
     </main>
   );
