@@ -8,7 +8,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-[#090C10] text-[#EFEBEB]">
-        <Navbar />
         <Home />
 
       </div>

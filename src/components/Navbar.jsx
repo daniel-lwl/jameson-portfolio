@@ -1,22 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ activeFilter, setActiveFilter }) => {
+  const filters = [
+    { id: 'all', label: 'Home' },
+    { id: 'highlights', label: 'Highlights' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
   return (
-    <nav className="flex justify-center py-4">
-      <div className="flex gap-4 bg-opacity-50 bg-[#0D1117] rounded-lg border border-gray-700 px-8 py-1">
-        <Link to="/" 
-        className="text-[#EFEBEB] hover:text-gray-300 hover:bg-gray-700 px-3 py-1 rounded transition-colors duration-200"
-        >Home</Link>
-
-        <Link to="/" 
-        className="text-[#EFEBEB] hover:text-gray-300 hover:bg-gray-700 px-3 py-1 rounded transition-colors duration-200"
-        >Highlights</Link>
-
-        <Link to="/" 
-        className="text-[#EFEBEB] hover:text-gray-300 hover:bg-gray-700 px-3 py-1 rounded transition-colors duration-200"
-        >Contact</Link>
-        
+    <nav className="flex justify-center py-2 sm:py-4">
+      <div className="flex gap-1 sm:gap-2 md:gap-4 bg-opacity-50 bg-[#0D1117] rounded-lg border border-gray-700 px-2 sm:px-4 md:px-8 py-1">
+        {filters.map((filter) => (
+          <button
+            key={filter.id}
+            onClick={() => setActiveFilter(filter.id)}
+            className={`text-[#EFEBEB] hover:text-gray-300 hover:bg-gray-700 px-2 sm:px-3 py-1 rounded transition-colors duration-200 text-xs sm:text-sm md:text-base ${
+              activeFilter === filter.id 
+                ? 'bg-gray-700 text-white' 
+                : ''
+            }`}
+          >
+            {filter.label}
+          </button>
+        ))}
       </div>
     </nav>
   );

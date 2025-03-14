@@ -8,7 +8,7 @@
 @theme {
   /* Define font settings */
   --font-dmsans: "DM Sans", sans-serif;
-  
+  --breakpoint-xs: 30rem;
   /* You can also define custom colors here if needed */
   /* --color-primary: #3b82f6; */
 }
