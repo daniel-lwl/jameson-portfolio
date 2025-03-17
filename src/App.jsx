@@ -1,17 +1,17 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// App.jsx
 import React from 'react';
-import './styles/global.css';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
+import GalleryPage from './pages/Gallery/GalleryPage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-[#090C10] text-[#EFEBEB]">
-        <Home />
-
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery/:category?" element={<GalleryPage />} />
+      </Routes>
+    </Router>
   );
 }
 
