@@ -4,18 +4,30 @@ import { Card } from '../../components/Card';
 
 // Define the GalleryPhoto component in the same file
 const GalleryPhoto = ({ photo }) => {
+  const [imageError, setImageError] = React.useState(false);
+
   return (
     <Card className="border-2 border-gray-700 overflow-hidden">
-      <div className={`relative ${photo.aspectRatio} w-full h-full group`}>
-        <img 
-          src={photo.src}
-          alt={photo.alt}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <div className="relative aspect-square w-full h-full group">
+        {imageError ? (
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-800">
+            <p className="text-gray-400 text-sm px-4 text-center">Image unavailable</p>
+          </div>
+        ) : (
+          <img 
+            src={photo.src}
+            alt={photo.alt}
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={() => setImageError(true)}
+          />
+        )}
         
         {/* Hover overlay with photo info */}
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-          <p className="text-white text-sm">{photo.alt}</p>
+          <h3 className="text-white font-medium mb-1">{photo.alt}</h3>
+          {photo.description && (
+            <p className="text-gray-300 text-sm">{photo.description}</p>
+          )}
         </div>
       </div>
     </Card>
@@ -24,13 +36,17 @@ const GalleryPhoto = ({ photo }) => {
 
 const PhotoGrid = ({ photos, loading }) => {
   if (loading) {
+    // Loading skeleton
     return (
-      <Card className="w-full p-6 flex items-center justify-center h-60 border-2 border-gray-700">
-        <div className="flex flex-col items-center gap-3">
-          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-white"></div>
-          <p className="text-[#EFEBEB]">Loading photos...</p>
+      <div className="w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
+          {[1, 2, 3, 4, 5, 6].map(i => (
+            <Card key={i} className="border-2 border-gray-700 overflow-hidden animate-pulse">
+              <div className="aspect-square w-full bg-gray-800"></div>
+            </Card>
+          ))}
         </div>
-      </Card>
+      </div>
     );
   }
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import GalleryPage from './pages/Gallery/GalleryPage';
-import TestStrapi from './components/TestStrapi';
+import TestPhoto from './components/TestPhoto';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/gallery/:category?" element={<GalleryPage />} />
       </Routes>
-      <TestStrapi />
+      
     </Router>
   );
 }
