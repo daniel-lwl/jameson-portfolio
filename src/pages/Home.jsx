@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     // Improved responsive padding
-    <main className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-6 sm:py-8 lg:py-10">
+    <main className="w-full px-10 sm:px-10 md:px-12 lg:px-18 xl:px-20 py-6 sm:py-8 lg:py-10">
       
       {/* FilterNav Component */}
       <Navbar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
