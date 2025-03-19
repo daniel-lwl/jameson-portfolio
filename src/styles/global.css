@@ -4,13 +4,80 @@
 /* Import Tailwind */
 @import "tailwindcss";
 
-/* Reset margins and paddings */
+/* Theme Configuration */
 @theme {
   /* Define font settings */
   --font-dmsans: "DM Sans", sans-serif;
   --breakpoint-xs: 30rem;
-  /* You can also define custom colors here if needed */
-  /* --color-primary: #3b82f6; */
+  
+  /* Define color palette - Dark Theme */
+  --color-background-main: #090c10;
+  --color-background-component: #0D1117;
+  --color-background-sidebar: #09121b;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #EFEBEB;
+  --color-text-subheading: #99A1AF;
+  --color-text-caption: #9CA3AF;
+  --color-border: #364153;
+  --color-hover: #374151;
+  --color-error-bg: rgba(127, 29, 29, 0.2);
+  --color-error-text: #FCA5A5;
+  --color-youtube: rgba(239, 68, 68, 0.8);
+}
+
+/* Custom color utilities */
+@layer utilities {
+  .bg-background-main {
+    background-color: var(--color-background-main);
+  }
+  
+  .bg-background-component {
+    background-color: var(--color-background-component);
+  }
+  
+  .bg-background-sidebar {
+    background-color: var(--color-background-sidebar);
+  }
+  
+  .text-primary {
+    color: var(--color-text-primary);
+  }
+  
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+  
+  .text-caption {
+    color: var(--color-text-caption);
+  }
+
+  .text-subheading {
+    color: var(--color-text-subheading);
+  }
+  
+  .border-custom {
+    border-color: var(--color-border);
+  }
+  
+  .hover-bg {
+    @apply transition-colors duration-200;
+  }
+  
+  .hover-bg:hover {
+    background-color: var(--color-hover);
+  }
+  
+  .bg-error {
+    background-color: var(--color-error-bg);
+  }
+  
+  .text-error {
+    color: var(--color-error-text);
+  }
+  
+  .bg-youtube {
+    background-color: var(--color-youtube);
+  }
 }
 
 @layer base {

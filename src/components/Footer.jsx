@@ -21,9 +21,9 @@ const Footer = () => {
   ];
 
   return (
-    <Card className="col-span-2 p-4 md:p-8 flex flex-col items-center justify-center space-y-1 sm:space-y-2 border-2 border-gray-700">
-      <h2 className="text-xl sm:text-2xl font-medium text-white">Jameson Teh</h2>
-      <p className="text-xs sm:text-sm text-gray-400">@ Jameson Teh 2025. All rights reserved.</p>
+    <Card className="col-span-2 p-4 md:p-8 flex flex-col items-center justify-center space-y-1 sm:space-y-2 border-2 border-custom">
+      <h2 className="text-xl sm:text-2xl font-medium text-primary">Jameson Teh</h2>
+      <p className="text-xs sm:text-sm text-subheading">@ Jameson Teh 2025. All rights reserved.</p>
       <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-2 sm:mt-4">
         {socialLinks.map((social, i) => (
           <a 

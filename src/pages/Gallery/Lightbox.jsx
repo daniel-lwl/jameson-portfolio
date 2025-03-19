@@ -42,7 +42,7 @@ const Lightbox = ({ photo, onClose, onNext, onPrevious, isLastPhoto, isFirstPhot
       {/* Close button */}
       <button 
         onClick={onClose}
-        className="absolute top-4 right-4 text-white p-2 rounded-full hover:bg-gray-800"
+        className="absolute top-4 right-4 text-primary p-2 rounded-full hover:bg-gray-800"
         aria-label="Close lightbox"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,7 +54,7 @@ const Lightbox = ({ photo, onClose, onNext, onPrevious, isLastPhoto, isFirstPhot
       <button 
         onClick={onPrevious} 
         disabled={isFirstPhoto}
-        className={`absolute left-4 text-white p-2 rounded-full hover:bg-gray-800 ${isFirstPhoto ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'}`}
+        className={`absolute left-4 text-primary p-2 rounded-full hover:bg-gray-800 ${isFirstPhoto ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'}`}
         aria-label="Previous photo"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,7 +66,7 @@ const Lightbox = ({ photo, onClose, onNext, onPrevious, isLastPhoto, isFirstPhot
       <button 
         onClick={onNext} 
         disabled={isLastPhoto}
-        className={`absolute right-4 text-white p-2 rounded-full hover:bg-gray-800 ${isLastPhoto ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'}`}
+        className={`absolute right-4 text-primary p-2 rounded-full hover:bg-gray-800 ${isLastPhoto ? 'opacity-30 cursor-not-allowed' : 'opacity-70 hover:opacity-100'}`}
         aria-label="Next photo"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,10 +83,10 @@ const Lightbox = ({ photo, onClose, onNext, onPrevious, isLastPhoto, isFirstPhot
         />
         
         {/* Caption */}
-        <div className="mt-2 text-white text-center">
+        <div className="mt-2 text-primary text-center">
           <h3 className="text-lg font-medium">{photo.alt}</h3>
           {photo.description && (
-            <p className="text-gray-300 text-sm mt-1">{photo.description}</p>
+            <p className="text-subheading text-sm mt-1">{photo.description}</p>
           )}
         </div>
       </div>

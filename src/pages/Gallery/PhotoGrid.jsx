@@ -9,7 +9,7 @@ const GalleryPhoto = ({ photo, onClick }) => {
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
   return (
-    <div className="rounded-4xl overflow-hidden bg-[#0D1117] border-2 border-gray-700 cursor-pointer" onClick={() => onClick(photo)}>
+    <div className="rounded-4xl overflow-hidden bg-[#0D1117] border-2 border-custom cursor-pointer" onClick={() => onClick(photo)}>
       <div className="relative aspect-square w-full h-full group">
         {imageError ? (
           <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gray-800">
@@ -40,9 +40,9 @@ const GalleryPhoto = ({ photo, onClick }) => {
         
         {/* Hover overlay with photo info */}
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-          <h3 className="text-white font-medium mb-1">{photo.alt}</h3>
+          <h3 className="text-primary font-medium mb-1">{photo.alt}</h3>
           {photo.description && (
-            <p className="text-gray-300 text-sm">{photo.description}</p>
+            <p className="text-caption text-sm">{photo.description}</p>
           )}
         </div>
       </div>
@@ -82,7 +82,7 @@ const PhotoGrid = ({ photos, loading }) => {
       <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
           {[1, 2, 3, 4, 5, 6].map(i => (
-            <Card key={i} className="border-2 border-gray-700 overflow-hidden animate-pulse">
+            <Card key={i} className="border-2 border-custom overflow-hidden animate-pulse">
               <div className="aspect-square w-full bg-gray-800"></div>
             </Card>
           ))}
@@ -93,7 +93,7 @@ const PhotoGrid = ({ photos, loading }) => {
 
   if (!photos || photos.length === 0) {
     return (
-      <Card className="w-full p-6 flex items-center justify-center h-60 border-2 border-gray-700">
+      <Card className="w-full p-6 flex items-center justify-center h-60 border-2 border-custom">
         <p className="text-[#EFEBEB]">No photos found in this category.</p>
       </Card>
     );

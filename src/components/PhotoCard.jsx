@@ -2,7 +2,7 @@ import React from 'react';
 import { LinkCard } from './Card';
 
 const PhotoCard = ({ to, image, alt, className, aspectRatio = "aspect-square", dimAmount = "bg-black/30" }) => (
-  <LinkCard to={to} className={`border-2 border-gray-700 ${className}`}>
+  <LinkCard to={to} className={`border-2 border-custom ${className}`}>
     <div className={`relative ${aspectRatio} w-full h-full group`}>
       <img 
         src={image}

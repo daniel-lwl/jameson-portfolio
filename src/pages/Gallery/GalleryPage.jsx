@@ -57,8 +57,8 @@ const GalleryPage = () => {
     }, 300);
   };
 
-  return (
-    <div className={`min-h-screen bg-[#090c10] text-[#EFEBEB] transition-opacity duration-300 ${pageVisible ? 'opacity-100' : 'opacity-0'}`}>
+  return ( 
+    <div className={`min-h-screen bg-background-main text-secondary transition-opacity duration-300 ${pageVisible ? 'opacity-100' : 'opacity-0'}`}>
       <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 flex flex-col min-h-screen">
         <div className="mb-6">
           <BackButton onClick={handleBackClick} />

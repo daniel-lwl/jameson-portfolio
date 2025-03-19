@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 // Base Card component
 export const Card = ({ children, className }) => (
-  <div className={`rounded-4xl overflow-hidden bg-[#0D1117] ${className}`}>
+  <div className={`rounded-4xl overflow-hidden ${className}`}>
     {children}
   </div>
 );
 
 // Link Card component (for internal routing)
 export const LinkCard = ({ to, children, className }) => (
-  <Link to={to} className={`block rounded-4xl overflow-hidden bg-[#0D1117] ${className}`}>
+  <Link to={to} className={`block rounded-4xl overflow-hidden ${className}`}>
     {children}
   </Link>
 );
@@ -21,7 +21,7 @@ export const ExternalLinkCard = ({ href, children, className }) => (
     href={href} 
     target="_blank" 
     rel="noopener noreferrer" 
-    className={`block rounded-4xl overflow-hidden bg-[#0D1117] ${className}`}
+    className={`block rounded-4xl overflow-hidden ${className}`}
   >
     {children}
   </a>

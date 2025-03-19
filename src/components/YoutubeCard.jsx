@@ -2,7 +2,7 @@ import React from 'react';
 import { ExternalLinkCard } from './Card';
 
 const YoutubeCard = ({ url, thumbnail, alt, className, aspectRatio = "aspect-square", dimAmount = "bg-black/30" }) => (
-  <ExternalLinkCard href={url} className={`border-2 border-gray-700 ${className}`}>
+  <ExternalLinkCard href={url} className={`border-2 border-custom ${className}`}>
     <div className={`relative ${aspectRatio} w-full h-full group`}>
       <img 
         src={thumbnail}
