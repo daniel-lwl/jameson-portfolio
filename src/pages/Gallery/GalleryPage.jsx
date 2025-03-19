@@ -78,7 +78,10 @@ const GalleryPage = () => {
                 </button>
               </div>
             ) : (
-              <PhotoGrid photos={photos} loading={loading} />
+              <PhotoGrid 
+                photos={photos} 
+                loading={loading} 
+              />
             )}
           </div>
         </div>
