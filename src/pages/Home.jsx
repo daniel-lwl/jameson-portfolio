@@ -7,10 +7,10 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 // Import assets
-import youtubeIcon from "../assets/youtube-icon.svg";
-import threadsIcon from "../assets/threads-icon.svg";
-import mtFuji from "../assets/mtFuji.jpg";
-import bmw from "../assets/bmw.jpg";
+import youtubeIcon from "../assets/icons/youtube-icon.svg";
+import threadsIcon from "../assets/icons/threads-icon.svg";
+import mtFuji from "../assets/gallery/japan/mtFuji-1.jpg";
+import bmw from "../assets/gallery/cars/bmw.jpg";
 import ytThumbnail1 from "../assets/jameson-yt-thumbnail-3.jpg";
 import ytThumbnail2 from "../assets/jameson-yt-thumbnail-2.jpg";
 

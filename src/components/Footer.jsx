@@ -3,12 +3,12 @@ import React from 'react';
 import { Card } from './Card'; // You'll need to import Card component
 
 // Import social media icons
-import youtubeIcon from "../assets/youtube-icon.svg";
-import threadsIcon from "../assets/threads-icon.svg";
-import instagramIcon from "../assets/instagram-icon.svg";
-import linkedinIcon from "../assets/linkedin-icon.svg";
-import whatsappIcon from "../assets/whatsapp-icon.svg";
-import emailIcon from "../assets/email-icon.svg";
+import youtubeIcon from "../assets/icons/youtube-icon.svg";
+import threadsIcon from "../assets/icons/threads-icon.svg";
+import instagramIcon from "../assets/icons/instagram-icon.svg";
+import linkedinIcon from "../assets/icons/linkedin-icon.svg";
+import whatsappIcon from "../assets/icons/whatsapp-icon.svg";
+import emailIcon from "../assets/icons/email-icon.svg";
 
 const Footer = () => {
   const socialLinks = [

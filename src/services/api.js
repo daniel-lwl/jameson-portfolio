@@ -1,4 +1,5 @@
-// api.js - works in all environments (Vite, CRA, Next.js)
+// api.js - works in all environments (Vite, CRA, Next.js) with static fallback
+import { fallbackCategories, fallbackPhotos } from '../data/fallbackGallery.js';
 
 // Check which environment we're in and get the API URL accordingly
 const getApiUrl = () => {
@@ -34,8 +35,16 @@ export const fetchAPI = async (path, urlParamsObject = {}) => {
   const requestUrl = `${getStrapiURL(`/api${path}${queryString ? `?${queryString}` : ''}`)}`;
 
   try {
-    // Trigger API call
-    const response = await fetch(requestUrl);
+    // Create a promise that rejects after a timeout
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => reject(new Error('Request timed out')), 500); // 2000 for 2 second delay, i changed it to 0.5 second
+    });
+
+    // Race the fetch against the timeout
+    const response = await Promise.race([
+      fetch(requestUrl),
+      timeoutPromise
+    ]);
     
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
@@ -56,7 +65,9 @@ export const getCategories = async () => {
         return data.data;
     } catch (error) {
         console.error('Error fetching categories:', error);
-        return [];
+        console.log('Using fallback categories data');
+        // Return fallback categories when API fails
+        return fallbackCategories;
     }
 };
 
@@ -70,7 +81,7 @@ export const getPhotosByCategory = async (categorySlug) => {
         });
         
         if (!data || !data.data || !Array.isArray(data.data)) {
-            return [];
+            throw new Error('Invalid data structure received from API');
         }
         
         // Transform the data structure to match what PhotoGrid expects
@@ -101,6 +112,8 @@ export const getPhotosByCategory = async (categorySlug) => {
         
     } catch (error) {
         console.error('Error fetching photos:', error);
-        return [];
+        console.log(`Using fallback photos for category "${categorySlug}"`);
+        // Return fallback photos for the specific category when API fails
+        return fallbackPhotos[categorySlug] || [];
     }
 };
