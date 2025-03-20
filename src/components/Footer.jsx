@@ -15,9 +15,9 @@ const Footer = () => {
     { name: 'YouTube', href: 'https://youtube.com/@jamesonandtracy', icon: youtubeIcon },
     { name: 'Instagram', href: 'https://instagram.com/jameson.lightshots/', icon: instagramIcon },
     { name: 'Threads', href: 'https://threads.net/@kingjamesonn', icon: threadsIcon },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', icon: linkedinIcon },
-    { name: 'WhatsApp', href: 'https://wa.me/yournumber', icon: whatsappIcon },
-    { name: 'Email', href: 'mailto:your@email.com', icon: emailIcon }
+    { name: 'LinkedIn', href: 'https://linkedin.com/in/jamesontehkahchun/', icon: linkedinIcon },
+    { name: 'WhatsApp', href: 'https://wa.me/+60182281486', icon: whatsappIcon },
+    { name: 'Email', href: 'mailto:jamesonteh64@gmail.com', icon: emailIcon }
   ];
 
   return (
